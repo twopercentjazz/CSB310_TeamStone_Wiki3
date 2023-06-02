@@ -2,9 +2,38 @@
 
 C# is an advanced, flexible, and influential programming language engineered by Microsoft. As an integral component of the .NET framework, it delivers a sturdy foundation for creating diverse applications across web, desktop, mobile, and gaming platforms. Within this Wiki, we will delve into several crucial topics that enrich your comprehension of C# and its vast capabilities.
 
-### Data Types (Chapter 6)  - Chris
-### Expressions (Chapter 7) - Chris
-### Assignment Statements (Chapter 7) - Yen
+## Data Types (Chapter 6)  - Chris
+
+In programming languages, a data type defines a collection of data values and a set of predefined operations on the values. C# is a strongly typed language, meaning every variable and constant must declare the type of data it will store. This is also true when defining methods, where every method declaration specifies a data type for each input parameter and for the return value. In C# data types are predefined (as part of the language) and can be either explicitly specified (using the appropriate keyword) or implicitly specified (using the var keyword to let the compiler infer the type). The compiler uses this data type information to make sure all operations that are performed are type safe. 
+
+In C# the information stored in a data type includes the storage space that a variable of the type requires, and the maximum and minimum values that a variable of the type can represent. Additionally, the information in a data type can also include the base type it inherits from, the interface it implements, and the kinds of operations that are permitted.
+
+C# data types are (mainly) categorized as either value types or reference types. Value types include simple types, enum types, struct types, and nullable types. Reference types on the other hand include class types, interface types, array types, and delegate types. See the chart below for reference. 
+
+![image](https://github.com/twopercentjazz/CSB310_TeamStone_Wiki3/assets/49768882/68c4c500-600c-47dc-9ae7-43763e3c0593)
+
+In C# the most common data types are the int, long, float, double, bool, char, and string. The following chart defines the size limitations and describes the use case for each of these types.
+
+![image](https://github.com/twopercentjazz/CSB310_TeamStone_Wiki3/assets/49768882/9b8bcef2-0a6d-46fb-9ae7-4e80976669b1)
+
+The first four types in the list are referred to as number types. The int and long types are collectively known as the integer types because they store whole numbers, and which type to use depends on the size of the numeric value. The float and decimal types are collectively known as the floating-point types because they store numbers with a fractional part, and (like with integers) which type to use depends on the size of the numeric value. The bool type (short for Boolean) is a binary variable meaning it has only two possible values, used to represent true and false values. The char data type is used to store a single alpha-numeric character. And last, the string type is used to store a block of text comprised of a sequence of characters. 
+
+## Expressions (Chapter 7) - Chris
+
+In programming languages, expressions are the fundamental means of specifying computations. In C# there are two (main) types of expressions, arithmetic (that evaluate to a number), and relational (that evaluate to a Boolean). In general, an expression is a sequence of operators and operands that evaluate to a single value (called the result of an expression). In C# arithmetic operators include addition, subtraction, multiplication, division, modulus, increment, and decrement (and will evaluate to a number value). The relational operators include equal to, not equal to, greater than, less than, greater than or equal to, and less than or equal to (and will evaluate to a Boolean value). You can also combine relational expressions with the logical operators AND, OR, and NOT.
+
+In C# the operands can be variables, literals, or method calls (that return a value), and the resulting value from the expression must have a data type associated with it. To be precise, in C#, an expression must have at least one operand but may not have any operators. Like in many programming languages, C# evaluates an expression by using the precedence of the operators. The following charts define these operators (mentioned above) and gives examples about how to use them with operands in an expression.
+
+Arithmetic operators:
+![image](https://github.com/twopercentjazz/CSB310_TeamStone_Wiki3/assets/49768882/33cce877-d2fa-40e0-96f8-25088763738d)
+
+Relational operators:
+![image](https://github.com/twopercentjazz/CSB310_TeamStone_Wiki3/assets/49768882/354be534-f2d7-40d7-8978-9fb3e939f3d3)
+
+Logical operators:
+![image](https://github.com/twopercentjazz/CSB310_TeamStone_Wiki3/assets/49768882/ded2462d-a47b-42c9-ac72-84f5e4df77fc)
+
+## Assignment Statements (Chapter 7) - Yen
 
 In C#, assignment statements play a fundamental role in programming as they allow you to assign values to variables and modify their contents. An assignment statement typically consists of an expression on the right-hand side (RHS) and a variable or a memory location on the left-hand side (LHS), separated by the assignment operator (=).
 
@@ -34,7 +63,7 @@ In this example, the value of the variable count is incremented by 1.
 
 Assignment statements are essential in programming, allowing you to store values in variables, update them, and manipulate data throughout the execution of a program. They form the backbone of data manipulation and play a crucial role in controlling the flow and behavior of programs written in C#.
 
-### Statement-Level Control Structures (Chapter 8) - Michael
+## Statement-Level Control Structures (Chapter 8) - Michael
 In many scenarios someone writing code will want some way to repeat the same block over and over because what they have written may need to occur multiple times. For example, suppose we want to search a Microsoft excel document that is thousands of rows tall and hundreds of columns wide for a value we know is there but are uncertain where. Writing individual expressions to search the document cell by cell would probably take longer than simply manually searching the document ourselves and the code file's size we write may also exceed the document it's programmed to search. With each cell along the way we would want to evaluate the data and determine if it's the value we are looking for or not. In computer programming languages such repetitious behavior and decision making branches are refered to as control statements. The collection and organization of control statements is called a control structure[ml1].
 
 C# offers traditional selection, multiple selection, interative and unconditional branching control statements and oftentimes updated for readability compared to their counterparts in other languages.
@@ -149,9 +178,9 @@ ml1 : textbook
 ml2 : offical docs https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/tutorials/branches-and-loops-local
 ml3 : https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/selection-statements
 
-### Subprograms (Chapter 9 and 10) - Riko
-### Abstract Data Types and Encapsulation Concepts (if there are any) (Chapter 11) - Riko
-### Object-Oriented Programming (Chapter 12) - Yen
+## Subprograms (Chapter 9 and 10) - Riko
+## Abstract Data Types and Encapsulation Concepts (if there are any) (Chapter 11) - Riko
+## Object-Oriented Programming (Chapter 12) - Yen
 
 Object-oriented programming (OOP) is a programming paradigm that organizes code around the concept of objects, which are instances of classes. Objects encapsulate data and behavior together, allowing for the creation of reusable and modular code. C# provides a rich set of features that facilitate the implementation of OOP concepts.
 
@@ -167,7 +196,7 @@ C# also supports other essential OOP concepts such as abstraction and associatio
 
 By providing these powerful features and supporting key principles of object-oriented programming, C# enables developers to write clean, modular, and reusable code. It allows for the creation of robust and scalable applications, promotes code organization, and facilitates collaboration among teams of developers. C# has become a popular choice for software development, especially in the Microsoft ecosystem, due to its rich OOP capabilities and extensive support from the .NET framework.
 
-### Exception Handling and Event Handling (Chapter 14) - Michael
+## Exception Handling and Event Handling (Chapter 14) - Michael
 
 
 ## Simple program
