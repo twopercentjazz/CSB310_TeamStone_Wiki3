@@ -184,23 +184,17 @@ The body of the subprogram contains the instructions code to be executed when th
 Parameters can be used to pass data into the subprogram, and the return type specifies the type of value that the subprogram may return to the caller.
 
 Small Example:
-> static void <method name>(string name)
->
-> {
->    
->   Console.WriteLine("Hello World!, {0}", name);
->
-> }
->
->
-> static void Main(string[] args)
->
-> {
->
->   MyMethod();
->
-> }
+```
+static void <method name>(string name)
+{
+	Console.WriteLine("Hello World!, {0}", name);
+}
 
+static void Main(string[] args)
+{
+	MyMethod();
+}
+```
 By using subprograms, developers improve code organization, maintainability, and reusability.
  Subprograms allow for code modularization, letting developers to focus on individual tasks and abstract away the complexity of the overall program.
   With the use of subprograms, code duplication is minimized, by simply calling subprograms within other subprograms.
