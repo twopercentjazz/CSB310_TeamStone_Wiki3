@@ -175,7 +175,33 @@ If we attempt to put the loopRestart: statement someplace else in the code that 
     }
 
 ## Subprograms (Chapter 9 and 10) - Riko
+Subprograms are also known as functions or methods. They play a crucial role in C# programming by encapsulating a set of instructions into a reusable block of code sometimes also thought of as a protocal. A subprogram in C# is defined within a class and can be called and executed multiple times from different parts of the program. This concept follows the fundamental principle of modularity, which allows developers to break down complex tasks into smaller, manageable units of code.
+Breaking down the problem in this way then allows for those units of code to be reused for other instructions.
+
+In C#, subprograms do not have a key word that is used to delare them. Instead it is done by
+declaring the visability of the method using public, private or protected followed by the return type, name, and a set of parentheses that may sometimes contain parameters. The body of the subprogram contains the instructions code to be executed when the subprogram is called. Parameters can be used to pass data into the subprogram, and the return type specifies the type of value that the subprogram may return to the caller.
+
+Small Example:
+> static void <method name>(string name) 
+> {
+>   Console.WriteLine("Hello World!, {0}", name);
+> }
+>
+> static void Main(string[] args)
+> {
+>   MyMethod();
+> }
+
+By using subprograms, developers improve code organization, maintainability, and reusability. Subprograms allow for code modularization, letting developers to focus on individual tasks and abstract away the complexity of the overall program. With the use of subprograms, code duplication is minimized, by simply calling subprograms within other subprograms. Finally, subprograms enhance code readability and debugging, as the logic for a particular task is encapsulated within a self-contained block, making it easier to understand and troubleshoot.
+
 ## Abstract Data Types and Encapsulation Concepts (if there are any) (Chapter 11) - Riko
+
+Encapsulation in C# also allows for the creation and usage of abstract data types (ADTs). An abstract data type is a high-level representation of a data structure that encapsulates the data and the operations that can be performed on it. This is done by leveraging encapsulation, C# allows developers to define classes that serve as ADTs (arraylist, linkedlist, stacks and queues) by encapsulating the data and methods related to that data.
+
+For example, consider a stack ADT implemented in C#. The stack class would encapsulate an underlying array or linked list and provide methods like Push, Pop, and Peek to manipulate the stack's elements. The inner workings of the class would be hidden form the end user, only ever allowing them to interact with the public methods.
+
+Encapsulating abstract data types in C# using encapsulation makes it so that the data and the operations on that data are tightly coupled, promoting encapsulation's benefits such as data hiding, modularity, and code organization. By encapsulating the stack data structure, developers can easily reuse the stack class in different parts of their codebase without worrying about its internal implementation, promoting code reusability and maintainability, allowing for a plug and play type of feeling that saves the developer alot of time allowing them to focus on what actually matters for them.
+
 ## Object-Oriented Programming (Chapter 12) - Yen
 
 Object-oriented programming (OOP) is a programming paradigm that organizes code around the concept of objects, which are instances of classes. Objects encapsulate data and behavior together, allowing for the creation of reusable and modular code. C# provides a rich set of features that facilitate the implementation of OOP concepts.
