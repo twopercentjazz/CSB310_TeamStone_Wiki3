@@ -66,17 +66,17 @@ Assignment statements are essential in programming, allowing you to store values
 ## Statement-Level Control Structures (Chapter 8) - Michael
 In many scenarios someone writing code will want some way to repeat the same block over and over because what they have written may need to occur multiple times. For example, suppose we want to search a Microsoft excel document that is thousands of rows tall and hundreds of columns wide for a value we know is there but are uncertain where. Writing individual expressions to search the document cell by cell would probably take longer than simply manually searching the document ourselves and the code file's size we write may also exceed the document it's programmed to search. With each cell along the way we would want to evaluate the data and determine if it's the value we are looking for or not. In computer programming languages such repetitious behavior and decision making branches are refered to as control statements. The collection and organization of control statements is called a control structure[ml1].
 
-C# offers traditional selection, multiple selection, interative and unconditional branching control statements and oftentimes updated for readability compared to their counterparts in other languages.
+C# offers traditional selection, multiple selection, interative and unconditional branching control statements and oftentimes updated for readability compared to their counterparts in other languages. In this section we will explain some of the more commonly used structures and demonstrate them with examples.
 
 ### Selection:
 A selection control statement allows code to branch multiple ways depending upon the evaluation of data. C# offers the if-then-else-end selection statement found in many other languages but the then and end reserved words are removed. Take this code sample for example;
 
-if (shouldContinue == true){
-	DoSomething();
-}
-else{
-	//A different block of code...
-}
+    if (shouldContinue == true){
+	    DoSomething();
+    }
+    else{
+	    //A different block of code...
+    }
 
 in this example whenever the code reaches the if statement the boolean expression  ```shouldContinue == true``` is evaluated. If the value of ```shouldContiue == true``` is true then the DoSomething function within the curley braces following the checked condition is called. If ```shouldContinue == true``` evaluted to false then code within the curley braces following the else reserve word is executed instead.
 
@@ -226,9 +226,10 @@ By providing these powerful features and supporting key principles of object-ori
 
 ## Exception Handling and Event Handling (Chapter 14) - Michael
 
+### Exceptions
 When writing programs we often rely on the IDE, testing and our general knowledge of how the language works to prevent us from introducing errors into the program. Despite our reliance we are still sometimes prone to error in ways that are outside what the program is designed to do or have control of. Take for example a program that reads a data file for processing. We could armor against software bugs by checking that the format and contents of the data file are correct but this assumes the file exists when and where we expect it. The user's folder structure and anything else that happens inside it while the program is running from memory can be unreliable. Such unusual but detectable errors are refered to as "exceptions" and the process of predicting and accounting for specific expections in the program is known as "exception handling"[ml1]. 
 
-C# offers exception handling that closely resembles an if-elseif-else style control statement. Using the try keyword a user can place their code in a special block that will be monitored for exceptions. Here is an example of the syntax.
+C# offers exception handling that closely resembles an ```if-elseif-else``` style control statement. Using the ```try``` keyword a user can place their code in a special block that will be monitored for exceptions. Here is an example of the syntax.
 
 	//numberArray is an integer array of unknown length
 	try{
@@ -238,7 +239,7 @@ C# offers exception handling that closely resembles an if-elseif-else style cont
 		}
 	}
 
-If the user is anticipating an exception, such as the missing file used in the example earlier, they can follow the try statement with a catch statement. Code within the block following the catch statement is executed if that catch statement is encountered. Here's an example building upon the previous.
+If the user is anticipating an exception, such as the missing file used in the example earlier, they can follow the ```try``` statement with a ```catch``` statement. Code within the block following the ```catch``` statement is executed if that ```catch``` statement is encountered. Here's an example building upon the previous.
 
 	//numberArray is an integer array of unknown length
 	try{
@@ -251,12 +252,12 @@ If the user is anticipating an exception, such as the missing file used in the e
 		Console.WriteLine("Outside the bounds of the numberArray!");
 	}
 
-The catch statement can be general and react to any exception or its focus can be narrowed down if you are anticipating a specific exception(or even one that inherits from another). Just like the else-if statement many catch statements can follow each other if you want to handle multiple possible exceptions in unique ways. 
+The ```catch``` statement can be general and react to any exception or its focus can be narrowed down if you are anticipating a specific exception(or even one that inherits from another). Just like the ```else-if``` statement many ```catch``` statements can follow each other if you want to handle multiple possible exceptions in unique ways. 
 
-After the try statement a user can also follow with a finally statement. Code in the block following a finally statement is executed regardless if an exception was caught or not. It offers the user a way to 'clean up' following an error prone section of try statement code if needed[ml4]. In C# a try statement must be followed by a catch and/or finally statement. Failing to do so will generate a compiler error.
+After the ```try``` statement a user can also follow with a ```finally``` statement. Code in the block following a ```finally``` statement is executed regardless if an exception was caught or not. It offers the user a way to 'clean up' following an error prone section of ```try``` statement code if needed[ml4]. In C# a ```try``` statement must be followed by a ```catch``` and/or ```finally``` statement. Failing to do so will generate a compiler error.
 
-	catch (System.IndexOutOfRangeException e) {
-
+	catch (System.IndexOutOfRangeException e)
+    {
         Console.WriteLine("Whoops! outside the array's boundaries!");
         int[] newArray = new int[11];
 
@@ -265,18 +266,22 @@ After the try statement a user can also follow with a finally statement. Code in
             newArray[i] = intArray[i];
             intArray = newArray;
         }
+    }
     finally
     {
         Console.WriteLine("The size of the array is:" + intArray.Length); // will be different if exception was caught
     }
     
 
-C#'s System library offers a wide variety of commonly generated exceptions. You can find some of the more common ones here: [ml5]. C# also allows you to generate your own exceptions by creating a type that inherits from System.SystemException and generating it during run time with the reserved word throw
+C#'s System library offers a wide variety of commonly generated exceptions. You can find some of the more common ones here: [ml5]. C# also allows you to generate your own exceptions by creating a type that inherits from ```System.SystemException``` and generating it during run time with the reserved word ```throw```
 
 	throw new SystemException("I'm exceptional!");
 
-Event Handling
-Event handling is similar to exception handling. It is a way to react to something that happens during runtime at unpredictable times but usually not erroneous behavior. An event is defined as a notification that something specific has occured[ml1]. An event handler is the code executed as a result of the event occuring or being "raised".
+### Event Handling
+Event handling is similar to exception handling. It is a way to react to something unpredictable that happens during runtime but usually does not refer to erroneous behavior. An event is defined as a notification that something specific has occured[ml1]. An event handler is the code executed as a result of the event occuring or being "raised". Events are a staple of many GUI driven applications and available out of the box in C# through the .NET framework. C#'s event handling is closely modeled after the observer design patter. In observer design pattern one or more objects known as "observers" will subscribe to a "subject" object. When conditions are met the subject will iterate through it's list of subscribers and call a notification method on them. Using this observer-subject relationship events can be raised whenever unpredicatable but intended actions occur such as button presses on a UI or devices being plugged into the computer.  In C#'s .NET framework this is further extended through delegates, which are references to methods instead of object instances[ml6].
+
+![observe pattern uml](images/observer_pattern_uml.png)
+
 
 ## Simple program
 
@@ -297,3 +302,8 @@ ml3 : https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/stateme
 ml4 : https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/exceptions/exception-handling
 
 ml5 : https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/exceptions 
+
+ml6: https://learn.microsoft.com/en-us/dotnet/standard/events/
+
+ml7: observer pattern uml : https://en.wikipedia.org/wiki/Observer_pattern
+
