@@ -293,17 +293,17 @@ References:
 [Y2] “Object-oriented programming (C#),” Object-Oriented Programming (C#) | Microsoft Learn. [Online]. Available: https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/tutorials/oop#:~:text=C%23%20is%20an%20object%2Doriented,abstract%20representation%20of%20a%20system. [Accessed Jun. 1, 2023]. 
 
 
-ml1 : textbook
+ml1 : Robert W. Sebesta, Concepts of Programming Languages, 10th ed. Pearson Education Inc, 2012.
 
-ml2 : offical docs https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/tutorials/branches-and-loops-local
+ml2 : Microsoft, "C# if statements and loops - conditional logic tutorial" [Online]. https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/tutorials/branches-and-loops-local (Accessed Jun. 1, 2023) 
 
-ml3 : https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/selection-statements
+ml3 : Microsoft, "Selection statements - if, if-else, and switch" [Online]. https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/selection-statements (Accessed Jun. 1, 2023)
 
-ml4 : https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/exceptions/exception-handling
+ml4 : Microsoft, "Exception Handling (C# Programming Guide)" [Online] https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/exceptions/exception-handling (Accessed Jun. 1, 2023)
 
-ml5 : https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/exceptions 
+ml5 : Microsoft, "Exceptions". [Online] https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/exceptions (Accessed Jun. 1,2023)
 
-ml6: https://learn.microsoft.com/en-us/dotnet/standard/events/
+ml6 : Microsoft, "Handle and raise events" [Online] https://learn.microsoft.com/en-us/dotnet/standard/events/ (Accessed Jun. 1, 2023)
 
-ml7: observer pattern uml : https://en.wikipedia.org/wiki/Observer_pattern
+ml7:  Wikipedia "Observer pattern" [Online] https://en.wikipedia.org/wiki/Observer_pattern (Accessed Jun. 1, 2023)
 
