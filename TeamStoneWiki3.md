@@ -287,6 +287,7 @@ Event handling is similar to exception handling. It is a way to react to somethi
 This program is a simple banking application that allows users to create and manage their bank accounts. Upon launching the program, users are prompted to enter their name and account number. If an existing account is found, the program displays the account details; otherwise, a new account is created. Users can then perform various banking operations such as making deposits, withdrawals, and printing their account statements. The program ensures that only valid inputs are accepted and provides helpful error messages when necessary. Overall, this application provides a user-friendly interface for managing personal bank accounts and conducting financial transactions.
 
 The immage below is an example of how the program operates:
+
 ![Console for the program](https://github.com/twopercentjazz/CSB310_TeamStone_Wiki3/assets/92559627/30cfc07c-8da2-4211-9fac-114d059109f9)
 
 
