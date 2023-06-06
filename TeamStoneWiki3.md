@@ -8,7 +8,7 @@ In programming languages, a data type defines a collection of data values and a 
 
 In C# the information stored in a data type includes the storage space that a variable of the type requires, and the maximum and minimum values that a variable of the type can represent. Additionally, the information in a data type can also include the base type it inherits from, the interface it implements, and the kinds of operations that are permitted.
 
-C# data types are (mainly) categorized as either value types or reference types. Value types include simple types, enum types, struct types, and nullable types. Reference types on the other hand include class types, interface types, array types, and delegate types. See the chart below for reference. 
+C# data types are (mainly) categorized as either value types or reference types. Value types include simple types, enum types, struct types, and nullable types. Reference types on the other hand include class types, interface types, array types, and delegate types. See the chart below for reference [1]. 
 
 ![image](https://github.com/twopercentjazz/CSB310_TeamStone_Wiki3/assets/49768882/68c4c500-600c-47dc-9ae7-43763e3c0593)
 
@@ -22,7 +22,7 @@ The first four types in the list are referred to as number types. The int and lo
 
 In programming languages, expressions are the fundamental means of specifying computations. In C# there are two (main) types of expressions, arithmetic (that evaluate to a number), and relational (that evaluate to a Boolean). In general, an expression is a sequence of operators and operands that evaluate to a single value (called the result of an expression). In C# arithmetic operators include addition, subtraction, multiplication, division, modulus, increment, and decrement (and will evaluate to a number value). The relational operators include equal to, not equal to, greater than, less than, greater than or equal to, and less than or equal to (and will evaluate to a Boolean value). You can also combine relational expressions with the logical operators AND, OR, and NOT.
 
-In C# the operands can be variables, literals, or method calls (that return a value), and the resulting value from the expression must have a data type associated with it. To be precise, in C#, an expression must have at least one operand but may not have any operators. Like in many programming languages, C# evaluates an expression by using the precedence of the operators. The following charts define these operators (mentioned above) and gives examples about how to use them with operands in an expression.
+In C# the operands can be variables, literals, or method calls (that return a value), and the resulting value from the expression must have a data type associated with it. To be precise, in C#, an expression must have at least one operand but may not have any operators. Like in many programming languages, C# evaluates an expression by using the precedence of the operators. The following charts define these operators (mentioned above) and gives examples about how to use them with operands in an expression [2].
 
 Arithmetic operators:
 ![image](https://github.com/twopercentjazz/CSB310_TeamStone_Wiki3/assets/49768882/33cce877-d2fa-40e0-96f8-25088763738d)
@@ -287,6 +287,10 @@ Event handling is similar to exception handling. It is a way to react to somethi
 
 
 References:
+
+[1] “C# - Data Types” Tutorials Teacher. https://www.tutorialsteacher.com/csharp/csharp-data-types [Accessed 6-1-2023].
+
+[2] “C# Operators” W3 Schools. https://www.w3schools.com/cs/cs_operators.php [Accessed 6-1-2023].
 
 [Y1] “Assignment operators - assign an expression to a variable,” Assignment operators - assign an expression to a variable | Microsoft Learn. [Online]. Available: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/assignment-operator [Accessed Jun. 1, 2023]. 
 
