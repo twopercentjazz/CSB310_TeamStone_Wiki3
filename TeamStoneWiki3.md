@@ -293,259 +293,264 @@ The immage below is an example of how the program operates:
 
 Program code in C#:
 
-using System;
-using System.Collections.Generic;
+	using System;
+	using System.Collections.Generic;
 
-enum TransactionType
-{
-    INCOME,
-    EXPENSE
-}
+	enum TransactionType
+	{
+	    INCOME,
+	    EXPENSE
+	}
 
-class Transaction
-{
-    private DateTime dateTime;
-    private decimal amount;
-    private TransactionType type;
-    private string comment;
+	class Transaction
+	{
+	    private DateTime dateTime;
+	    private decimal amount;
+	    private TransactionType type;
+	    private string comment;
 
-    public Transaction(DateTime dateTime, decimal amount, TransactionType type, string comment)
-    {
-        this.amount = (type == TransactionType.INCOME) ? Math.Abs(amount) : -1 * Math.Abs(amount);
-        this.dateTime = dateTime;
-        this.comment = comment;
-        this.type = type;
-    }
+	    public Transaction(DateTime dateTime, decimal amount, TransactionType type, string comment)
+		{
+			this.amount = (type == TransactionType.INCOME) ? Math.Abs(amount) : -1 * Math.Abs(amount);
+			this.dateTime = dateTime;
+			this.comment = comment;
+			this.type = type;
+		}
 
-    public override string ToString()
-    {
-        return type.ToString() + " : $" + amount.ToString() + " At " + dateTime.ToString() +
-            " Comment : " + comment;
-    }
-}
+		public override string ToString()
+		{
+			return type.ToString() + " : $" + amount.ToString() + " At " + dateTime.ToString() +
+			" Comment : " + comment;
+		}
+	}
 
-class IllegalActivityException : Exception
-{
-    public IllegalActivityException(string message) : base(message)
-    {
-    }
-}
+	class IllegalActivityException : Exception
+	{
+	    public IllegalActivityException(string message) : base(message)
+	    {
+	    }
+	}
 
-class BankAccount
-{
-    private static int CLASSNUMBER = 0;
-    private string Number;
-    private string Owner;
-    private decimal Balance;
-    private List<Transaction> statementHistory;
-    private Dictionary<string, int> ValidEntries;
+	class BankAccount
+	{
+	    private static int CLASSNUMBER = 0;
+	    private string Number;
+	    private string Owner;
+	    private decimal Balance;
+	    private List<Transaction> statementHistory;
+	    private Dictionary<string, int> ValidEntries;
 
-    public BankAccount(string Owner)
-    {
-        CLASSNUMBER++;
-        Number = CLASSNUMBER.ToString();
-        this.Owner = Owner;
-        Balance = 0;
-        statementHistory = new List<Transaction>();
+	    public BankAccount(string Owner)
+	    {
+		CLASSNUMBER++;
+		Number = CLASSNUMBER.ToString();
+		this.Owner = Owner;
+		Balance = 0;
+		statementHistory = new List<Transaction>();
 
-        ValidEntries = new Dictionary<string, int>();
-        ValidEntries.Add("0", 0);
-        ValidEntries.Add("1", 0);
-        ValidEntries.Add("2", 0);
-        ValidEntries.Add("3", 0);
-        ValidEntries.Add("exit", 0);
-        ValidEntries.Add("punch", 0);
-    }
+		ValidEntries = new Dictionary<string, int>();
+		ValidEntries.Add("0", 0);
+		ValidEntries.Add("1", 0);
+		ValidEntries.Add("2", 0);
+		ValidEntries.Add("3", 0);
+		ValidEntries.Add("exit", 0);
+		ValidEntries.Add("punch", 0);
+	    }
 
-    public void MakeDeposit(decimal amount, DateTime date, string comment)
-    {
-        statementHistory.Add(new Transaction(date, amount, TransactionType.INCOME, comment));
-        Balance += Math.Abs(amount);
-    }
+	    public void MakeDeposit(decimal amount, DateTime date, string comment)
+	    {
+		statementHistory.Add(new Transaction(date, amount, TransactionType.INCOME, comment));
+		Balance += Math.Abs(amount);
+	    }
 
-    public void MakeWithdrawal(decimal amount, DateTime date, string comment)
-    {
-        statementHistory.Add(new Transaction(date, amount, TransactionType.EXPENSE, comment));
-        Balance -= Math.Abs(amount);
-    }
+	    public void MakeWithdrawal(decimal amount, DateTime date, string comment)
+	    {
+		statementHistory.Add(new Transaction(date, amount, TransactionType.EXPENSE, comment));
+		Balance -= Math.Abs(amount);
+	    }
 
-    public Dictionary<string, int> GetValidEntries()
-    {
-        return ValidEntries;
-    }
+	    public Dictionary<string, int> GetValidEntries()
+	    {
+		return ValidEntries;
+	    }
 
-    public string GetOwner()
-    {
-        return Owner;
-    }
+	    public string GetOwner()
+	    {
+		return Owner;
+	    }
 
-    public decimal GetBalance()
-    {
-        return Balance;
-    }
+	    public decimal GetBalance()
+	    {
+		return Balance;
+	    }
 
-    public List<Transaction> GetStatementHistory()
-    {
-        return statementHistory;
-    }
+	    public List<Transaction> GetStatementHistory()
+	    {
+		return statementHistory;
+	    }
 
-    public string PrintStatement()
-    {
-        string str = "Account Statement:\n";
-        foreach (var item in statementHistory)
-        {
-            str += "\t" + item.ToString() + "\n";
-        }
-        str += "End Statement\n";
-        return str;
-    }
+	    public string PrintStatement()
+	    {
+		string str = "Account Statement:\n";
+		foreach (var item in statementHistory)
+		{
+		    str += "\t" + item.ToString() + "\n";
+		}
+		str += "End Statement\n";
+		return str;
+	    }
 
-    public override string ToString()
-    {
-        string str = "";
-        str += "Account Number : " + Number.ToString() + "\n";
-        str += "Account Holder : " + Owner.ToString() + "\n";
-        str += "Account Balance : " + Balance.ToString() + "\n";
-        return str;
-    }
-}
+	    public override string ToString()
+	    {
+		string str = "";
+		str += "Account Number : " + Number.ToString() + "\n";
+		str += "Account Holder : " + Owner.ToString() + "\n";
+		str += "Account Balance : " + Balance.ToString() + "\n";
+		return str;
+	    }
+	}
 
-class Program
-{
-    static string userInput = "";
+	class Program
+	{
+	    static string userInput = "";
 
-    public static void Main(string[] args)
-    {
-        List<BankAccount> bankAccounts = new List<BankAccount>();
-        bankAccounts.Add(new BankAccount("Stone"));
+	    public static void Main(string[] args)
+	    {
+		List<BankAccount> bankAccounts = new List<BankAccount>();
+		bankAccounts.Add(new BankAccount("Stone"));
 
-        bool isUser = false;
+		bool isUser = false;
 
-        Console.WriteLine("Welcome to Team Stone Bank\n");
-        Console.WriteLine("We are glad to have you as a client");
-        Console.WriteLine("Enter \"exit\" anytime to end the program");
+		Console.WriteLine("Welcome to Team Stone Bank\n");
+		Console.WriteLine("We are glad to have you as a client");
+		Console.WriteLine("Enter \"exit\" anytime to end the program");
 
-        int currentAccountIndex = -1;
+		int currentAccountIndex = -1;
 
-        while (!userInput.Equals("exit"))
-        {
-            switch (isUser)
-            {
-                case false:
-                    currentAccountIndex = MainMenu(bankAccounts);
-                    isUser = true;
-                    break;
+		while (!userInput.Equals("exit"))
+		{
+		    switch (isUser)
+		    {
+			case false:
+			    currentAccountIndex = MainMenu(bankAccounts);
+			    isUser = true;
+			    break;
 
-                case true:
-                    Console.WriteLine("\n\n");
-                    Console.WriteLine("Enter 0 to make a deposit");
-                    Console.WriteLine("Enter 1 to make a withdrawal");
-                    Console.WriteLine("Enter 2 to print account statement");
-                    Console.WriteLine("Enter 3 to go back to the main menu");
+			case true:
+			    Console.WriteLine("\n\n");
+			    Console.WriteLine("Enter 0 to make a deposit");
+			    Console.WriteLine("Enter 1 to make a withdrawal");
+			    Console.WriteLine("Enter 2 to print account statement");
+			    Console.WriteLine("Enter 3 to go back to the main menu");
+			    Console.WriteLine("Press 4 with too much force.");
 
-                    userInput = Console.ReadLine();
+			    userInput = Console.ReadLine();
 
-                    if (!bankAccounts[currentAccountIndex].GetValidEntries().ContainsKey(userInput))
-                    {
-                        Console.WriteLine("Invalid Entry");
-                        continue;
-                    }
+			    if (!bankAccounts[currentAccountIndex].GetValidEntries().ContainsKey(userInput))
+			    {
+				Console.WriteLine("Invalid Entry");
+				continue;
+			    }
 
-                    switch (userInput)
-                    {
-                        case "0":
-                            Console.WriteLine("Enter deposit amount:");
-                            decimal depositAmount = Convert.ToDecimal(Console.ReadLine());
-                            Console.WriteLine("Enter deposit date (MM/dd/yyyy):");
-                            DateTime depositDate = DateTime.ParseExact(Console.ReadLine(), "MM/dd/yyyy", null);
-                            Console.WriteLine("Enter deposit comment:");
-                            string depositComment = Console.ReadLine();
-                            bankAccounts[currentAccountIndex].MakeDeposit(depositAmount, depositDate, depositComment);
-                            Console.WriteLine("Deposit successful!");
-                            break;
+			    switch (userInput)
+			    {
+				case "0":
+				    Console.WriteLine("Enter deposit amount:");
+				    decimal depositAmount = Convert.ToDecimal(Console.ReadLine());
+				    Console.WriteLine("Enter deposit date (MM/dd/yyyy):");
+				    DateTime depositDate = DateTime.ParseExact(Console.ReadLine(), "MM/dd/yyyy", null);
+				    Console.WriteLine("Enter deposit comment:");
+				    string depositComment = Console.ReadLine();
+				    bankAccounts[currentAccountIndex].MakeDeposit(depositAmount, depositDate, depositComment);
+				    Console.WriteLine("Deposit successful!");
+				    break;
 
-                        case "1":
-                            Console.WriteLine("Enter withdrawal amount:");
-                            decimal withdrawalAmount = Convert.ToDecimal(Console.ReadLine());
-                            Console.WriteLine("Enter withdrawal date (MM/dd/yyyy):");
-                            DateTime withdrawalDate = DateTime.ParseExact(Console.ReadLine(), "MM/dd/yyyy", null);
-                            Console.WriteLine("Enter withdrawal comment:");
-                            string withdrawalComment = Console.ReadLine();
-                            bankAccounts[currentAccountIndex].MakeWithdrawal(withdrawalAmount, withdrawalDate, withdrawalComment);
-                            Console.WriteLine("Withdrawal successful!");
-                            break;
+				case "1":
+				    Console.WriteLine("Enter withdrawal amount:");
+				    decimal withdrawalAmount = Convert.ToDecimal(Console.ReadLine());
+				    Console.WriteLine("Enter withdrawal date (MM/dd/yyyy):");
+				    DateTime withdrawalDate = DateTime.ParseExact(Console.ReadLine(), "MM/dd/yyyy", null);
+				    Console.WriteLine("Enter withdrawal comment:");
+				    string withdrawalComment = Console.ReadLine();
+				    bankAccounts[currentAccountIndex].MakeWithdrawal(withdrawalAmount, withdrawalDate, withdrawalComment);
+				    Console.WriteLine("Withdrawal successful!");
+				    break;
 
-                        case "2":
-                            Console.WriteLine(bankAccounts[currentAccountIndex].PrintStatement());
-                            break;
+				case "2":
+				    Console.WriteLine(bankAccounts[currentAccountIndex].PrintStatement());
+				    break;
 
-                        case "3":
-                            isUser = false;
-                            break;
+				case "3":
+				    isUser = false;
+				    break;
+				    
+				case "4":
+				    throw new IllegalActivityException("Damaging the machine is forbidden!");
+				    break;
+				    
+				default:
+				    Console.WriteLine("Invalid Entry");
+				    break;
+			    }
 
-                        default:
-                            Console.WriteLine("Invalid Entry");
-                            break;
-                    }
+			    break;
 
-                    break;
+			default:
+			    break;
+		    }
+		}
+	    }
 
-                default:
-                    break;
-            }
-        }
-    }
+	    public static int MainMenu(List<BankAccount> bankAccounts)
+	    {
+		Console.WriteLine("\n\n");
+		Console.WriteLine("Enter your name:");
+		string name = Console.ReadLine();
 
-    public static int MainMenu(List<BankAccount> bankAccounts)
-    {
-        Console.WriteLine("\n\n");
-        Console.WriteLine("Enter your name:");
-        string name = Console.ReadLine();
+		BankAccount account = bankAccounts.Find(a => a.GetOwner() == name);
 
-        BankAccount account = bankAccounts.Find(a => a.GetOwner() == name);
+		if (account != null)
+		{
+		    Console.WriteLine("\nWelcome back, " + name + "!");
+		    Console.WriteLine(account.ToString());
+		}
+		else
+		{
+		    Console.WriteLine("\nHello, " + name + "! We couldn't find an account for you.");
+		    Console.WriteLine("Creating a new account...");
+		    account = new BankAccount(name);
+		    bankAccounts.Add(account);
+		    Console.WriteLine("\nNew account created!");
+		    Console.WriteLine(account.ToString());
+		}
 
-        if (account != null)
-        {
-            Console.WriteLine("\nWelcome back, " + name + "!");
-            Console.WriteLine(account.ToString());
-        }
-        else
-        {
-            Console.WriteLine("\nHello, " + name + "! We couldn't find an account for you.");
-            Console.WriteLine("Creating a new account...");
-            account = new BankAccount(name);
-            bankAccounts.Add(account);
-            Console.WriteLine("\nNew account created!");
-            Console.WriteLine(account.ToString());
-        }
+		Console.WriteLine("\n\n");
+		Console.WriteLine("Enter your account number:");
+		Console.WriteLine("Or enter \"exit\" to end the program");
 
-        Console.WriteLine("\n\n");
-        Console.WriteLine("Enter your account number:");
-        Console.WriteLine("Or enter \"exit\" to end the program");
+		userInput = Console.ReadLine();
 
-        userInput = Console.ReadLine();
+		if (userInput.Equals("exit"))
+		    return -1;
 
-        if (userInput.Equals("exit"))
-            return -1;
+		int accountIndex = -1;
+		while (accountIndex == -1)
+		{
+		    accountIndex = bankAccounts.FindIndex(a => a.GetOwner() == name && a.GetValidEntries().ContainsKey(userInput));
 
-        int accountIndex = -1;
-        while (accountIndex == -1)
-        {
-            accountIndex = bankAccounts.FindIndex(a => a.GetOwner() == name && a.GetValidEntries().ContainsKey(userInput));
+		    if (accountIndex == -1)
+		    {
+			Console.WriteLine("Invalid account number");
+			Console.WriteLine("Enter your account number again:");
+			userInput = Console.ReadLine();
+		    }
+		}
 
-            if (accountIndex == -1)
-            {
-                Console.WriteLine("Invalid account number");
-                Console.WriteLine("Enter your account number again:");
-                userInput = Console.ReadLine();
-            }
-        }
+		Console.WriteLine("Account selected: " + bankAccounts[accountIndex].ToString());
 
-        Console.WriteLine("Account selected: " + bankAccounts[accountIndex].ToString());
-
-        return accountIndex;
-    }
-}
+		return accountIndex;
+	    }
+	}
 
 
 References:
